@@ -1,3 +1,23 @@
+<!--
+<surreal-transition></surreal-transition>
+-->
+
+<!-- Usa de referencia el link de abajo -->
+<!--? https://github.com/iDevelopThings/SurrealDB-Explorer -->
+
+<main>
+    <section id="right-side">
+        <img class="surrealdb-logo" src="./assets/surrealdb-logo-light.svg" alt="SurrealDB Logo">
+        <div class="connections">
+            <div class="connections-button option active">
+                <i class="bi bi-database"></i>
+                Connections
+            </div>
+        </div>
+        <div class="options"></div>
+    </section>
+</main>
+<!--
 <nav>
     <img class="surrealdb-logo" src="./assets/surrealdb-logo-light.svg" alt="SurrealDB Logo">
     <span class="database-name-container"><i class="bi bi-database-fill"></i> Database <span class="database-name">{{ DBName }}</span></span>
@@ -32,55 +52,6 @@
             <span class="option-label">Scopes</span>
         </div>
     </section>
-
-    <!--
-    <section *ngIf="activeTab === 'tables'" id="tables-and-data">
-        <div class="header">
-            <div class="option">
-                <span>Tables</span>
-            </div>
-            <div class="option">
-                <i class="bi bi-arrow-repeat"></i>
-                <span>Refresh</span>
-            </div>
-            <div class="option">
-                <i class="bi bi-funnel"></i>
-                <span>Filter</span>
-            </div>
-            <div class="option">
-                <i class="bi bi-sort-down"></i>
-                <span>Sort</span>
-            </div>
-            <div class="option">
-                <i class="bi bi-plus-lg"></i>
-                <span>New Record</span>
-            </div>
-        </div>
-        <div class="tables-data">
-            <div class="tables">
-                <div *ngFor="let table of tables">
-                    <div (click)="showData(table)" id="table-{{table}}" class="table table-template">
-                        <i class="bi bi-grid-3x3"></i> <span>{{ table }}</span>
-                    </div>
-                </div>
-            </div>
-            <div class="data-container">
-                <div class="header">
-                    <div *ngFor="let attribute of dataKeys" class="table-attribute table-template">
-                        <span>{{ attribute }}</span>
-                    </div>
-                </div>
-                <div class="data">
-                    <div *ngFor="let value of data" class="value">
-                        <div *ngFor="let attribute of dataKeys" class="value-content table-template">
-                            <span>{{ value[attribute] }}</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    -->
-    
     <tables-view *ngIf="activeTab === 'tables'"></tables-view>
 </main>
+-->
