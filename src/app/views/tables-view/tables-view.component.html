@@ -1,0 +1,93 @@
+<section (keypress)="keyDown($event)" id="tables-and-data">
+    <div class="header">
+        <div class="option">
+            <span>Tables</span>
+        </div>
+        <div class="option">
+            <i class="bi bi-arrow-repeat"></i>
+            <span>Refresh</span>
+        </div>
+        <div class="option">
+            <i class="bi bi-funnel"></i>
+            <span>Filter</span>
+        </div>
+        <div class="option">
+            <i class="bi bi-sort-down"></i>
+            <span>Sort</span>
+        </div>
+        <div (click)="addRecordModal = !addRecordModal" class="option">
+            <i class="bi bi-grid-3x3"></i>
+            <span>New Table</span>
+        </div>
+        <div (click)="addRecordModal = !addRecordModal" class="option">
+            <i class="bi bi-file-earmark-text"></i>
+            <span>New Record</span>
+        </div>
+    </div>
+    <div class="tables-data">
+        <div class="tables">
+            <div *ngFor="let table of tables">
+                <div (click)="showData(table)" id="table-{{table}}" class="table table-template">
+                    <i class="bi bi-grid-3x3"></i> <span>{{ table }}</span>
+                </div>
+            </div>
+        </div>
+        <div class="data-container">
+            <div class="header">
+                <div *ngIf="actualTable != ''" class="table-attribute table-template">
+                    <span>Actions</span>
+                </div>
+                <div *ngFor="let attribute of dataKeys" class="table-attribute table-template">
+                    <span>{{ attribute }}</span>
+                </div>
+            </div>
+            <div class="data">
+                <div *ngFor="let value of data" class="value">
+                    <div class="value-content table-template actions">
+                        <i class="bi bi-pencil-square"></i>
+                        <i (click)="showDeleteRecordModal(value['id'])" class="bi bi-trash"></i>
+                    </div>
+                    <div *ngFor="let attribute of dataKeys" class="value-content table-template">
+                        <span>{{ value[attribute] }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section *ngIf="addRecordModal" (click)="shouldCloseModal($event, 'add-record-modal')" class="modal" id="add-record-modal">
+    <div class="modal-body">
+        <span class="title">Add a record</span>
+        <div class="select-container">
+            <span class="subtitle">Select a table</span>
+            <select (change)="modalChange()" [(ngModel)]="modalData.table">
+                <option *ngFor="let table of tables" [value]="table">{{ table }}</option>
+            </select>
+        </div>
+
+        <form addRecordForm="ngForm" (ngSubmit)="createRecord()" class="modal-form" *ngIf="modalData.table != ''">
+            <div *ngFor="let attribute of modalData.keys" class="form-group">
+                <label>{{ attribute }}</label>
+                <input name="{{ attribute }}" [(ngModel)]="modalData.data[attribute]" type="text" class="form-control" placeholder="Enter {{ attribute }}">
+            </div>
+            <button type="submit" class="add-record">Add Record</button>
+            <button (click)="cancelRecord()" type="button" class="cancel-record">Cancel</button>
+        </form>
+    </div>
+</section>
+
+<section *ngIf="deleteRecordModal" (click)="shouldCloseModal($event, 'delete-record-modal')" class="modal" id="delete-record-modal">
+    <div class="modal-body">
+        <span class="title">Are you sure?</span>
+        <p class="subtitle">If you delete the record there won't be a way to recover it. Are you sure?</p>
+        <div class="modal-form">
+            <button (click)="deleteRecord()" class="delete-record">
+                I'm sure. Delete it.
+            </button>
+            <button (click)="deleteRecordModal = !deleteRecordModal" class="cancel">
+                Cancel
+            </button>
+        </div>
+    </div>
+</section>

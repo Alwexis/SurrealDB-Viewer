@@ -1,0 +1,42 @@
+<video id="video-transition" autoplay="true" src="./assets/surrealdb-logo.mp4"></video>
+<div id="transition" class="hidden"></div>
+
+<main class="hidden">
+    <img class="surrealdb-logo" src="./assets/surrealdb-logo-light.svg" alt="SurrealDB Logo">
+    
+    <div class="log-in">
+        <span class="title">Log in to Database</span>
+        <form id="loginForm" #LoginForm="ngForm" (ngSubmit)="login()">
+            <div class="form-item">
+                <label for="db"><i class="bi bi-database"></i> DB</label>
+                <input type="text" name="db" [(ngModel)]="credentials.db" required>
+            </div>
+            <div class="form-item">
+                <label for="user"><i class="bi bi-person"></i> Username</label>
+                <input type="text" name="user" [(ngModel)]="credentials.user" required>
+            </div>
+            <div class="form-item">
+                <label for="pass"><i class="bi bi-key"></i> Password</label>
+                <input type="password" name="pass" [(ngModel)]="credentials.pass" required>
+            </div>
+            <span *ngIf="errorMsg !== ''" class="error-msg">
+                <i class="bi bi-exclamation-circle"></i> {{ errorMsg }}
+            </span>
+            <button type="submit" class="login-button">
+                Login
+            </button>
+        </form>
+    </div>
+</main>
+
+<section *ngIf="createConnModal" (click)="shouldCloseModal($event)" class="modal" id="create-connection">
+    <div class="modal-body">
+        <span class="title">Connection error</span>
+        <p class="subtitle">It's seems that you haven't start the database {{ credentials.db }}. Should we start it for you? (We'll use the same credentials that you provided us)</p>
+        <div class="modal-form">
+            <button (click)="createConnModal = !createConnModal" class="cancel">
+                Cancel
+            </button>
+        </div>
+    </div>
+</section>

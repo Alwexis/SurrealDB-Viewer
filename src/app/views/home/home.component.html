@@ -1,0 +1,86 @@
+<nav>
+    <img class="surrealdb-logo" src="./assets/surrealdb-logo-light.svg" alt="SurrealDB Logo">
+    <span class="database-name-container"><i class="bi bi-database-fill"></i> Database <span class="database-name">{{ DBName }}</span></span>
+    <span id="logout"><i class="bi bi-box-arrow-right"></i> Logout</span>
+</nav>
+<main>
+    <section id="options">
+        <div (click)="changeTab('sqlquery')" id="sqlquery" class="option active">
+            <i *ngIf="activeTab != 'sqlquery'; else SQLQuery" class="bi bi-terminal"></i>
+            <ng-template #SQLQuery>
+                <i class="bi bi-terminal-fill"></i>
+            </ng-template>
+            <span class="option-label">SQL Query</span>
+        </div>
+        <div (click)="changeTab('tables')" id="tables" class="option">
+            <i class="bi bi-table"></i>
+            <span class="option-label">Tables</span>
+        </div>
+        <div (click)="changeTab('logins')" id="logins" class="option">
+            <i class="bi bi-box-arrow-in-right"></i>
+            <span class="option-label">Logins</span>
+        </div>
+        <div (click)="changeTab('tokens')" id="tokens" class="option">
+            <i *ngIf="activeTab != 'tokens'; else Tokens" class="bi bi-heptagon"></i>
+            <ng-template #Tokens>
+                <i class="bi bi-heptagon-fill"></i>
+            </ng-template>
+            <span class="option-label">Tokens</span>
+        </div>
+        <div (click)="changeTab('scopes')" id="scopes" class="option">
+            <i class="bi bi-bullseye"></i>
+            <span class="option-label">Scopes</span>
+        </div>
+    </section>
+
+    <!--
+    <section *ngIf="activeTab === 'tables'" id="tables-and-data">
+        <div class="header">
+            <div class="option">
+                <span>Tables</span>
+            </div>
+            <div class="option">
+                <i class="bi bi-arrow-repeat"></i>
+                <span>Refresh</span>
+            </div>
+            <div class="option">
+                <i class="bi bi-funnel"></i>
+                <span>Filter</span>
+            </div>
+            <div class="option">
+                <i class="bi bi-sort-down"></i>
+                <span>Sort</span>
+            </div>
+            <div class="option">
+                <i class="bi bi-plus-lg"></i>
+                <span>New Record</span>
+            </div>
+        </div>
+        <div class="tables-data">
+            <div class="tables">
+                <div *ngFor="let table of tables">
+                    <div (click)="showData(table)" id="table-{{table}}" class="table table-template">
+                        <i class="bi bi-grid-3x3"></i> <span>{{ table }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="data-container">
+                <div class="header">
+                    <div *ngFor="let attribute of dataKeys" class="table-attribute table-template">
+                        <span>{{ attribute }}</span>
+                    </div>
+                </div>
+                <div class="data">
+                    <div *ngFor="let value of data" class="value">
+                        <div *ngFor="let attribute of dataKeys" class="value-content table-template">
+                            <span>{{ value[attribute] }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    -->
+    
+    <tables-view *ngIf="activeTab === 'tables'"></tables-view>
+</main>

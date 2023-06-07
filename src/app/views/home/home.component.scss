@@ -1,0 +1,82 @@
+* {
+    user-select: none;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--system-font);
+    padding: 1rem 2rem;
+    border-bottom: 1px solid var(--border-variant);
+    background-color: var(--background-variant);
+    & .surrealdb-logo {
+        width: 10rem;
+    }
+    & .database-name-container {
+        display: flex;
+        align-items: center;
+        color: var(--hover-color);
+        & .bi {
+            margin-right: 0.25rem;
+        }
+        & .database-name {
+            margin-left: 0.4rem;
+            color: var(--text-color);
+            padding: 0.2rem 0.5rem;
+            border-radius: 0.25rem;
+            background-color: var(--background);
+            font-family: var(--system-font-mono);
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+    }
+    & #logout {
+        display: flex;
+        align-items: center;
+        color: var(--color-red);
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        & i {
+            margin-right: 0.25rem;
+        }
+        &:hover {
+            color: var(--hover-color);
+            transform: scale(1.1);
+            font-weight: 400;
+        }
+    }
+}
+
+main {
+    display: flex;
+    & #options {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-width: 20%;
+        max-width: 20%;
+        background-color: var(--background-variant);
+        & .option {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-100-variant);
+            font-family: var(--system-font);
+            width: 100%;
+            cursor: pointer;
+            transition: all 0.25s ease-in-out;
+            padding: 1.5rem 0;
+            & i {
+                margin-right: 0.25rem;
+            }
+            & .option-label {
+                margin-left: 0.25rem;
+            }
+            &:hover, &.active {
+                background-color: var(--item-hover-variant);
+                color: var(--hover-color);
+            }
+        }
+    }
+}

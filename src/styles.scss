@@ -1,0 +1,419 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--background);    
+}
+
+main {
+    overflow: hidden;
+}
+
+tables-view {
+    max-width: 80%;
+}
+
+#transition {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: var(--background);
+    z-index: 9999;
+    animation-name: fadeOut;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-direction: reverse;
+    animation-iteration-count: 1;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    & .modal-body {
+        display: flex;
+        flex-direction: column;
+        min-width: 20rem;
+        max-width: 20rem;
+        color: var(--text-200-variant);
+        background-color: var(--background-variant);
+        padding: 2rem 4rem;
+        border: 1px solid var(--border-variant);
+        border-radius: 0.25rem;
+        font-family: var(--system-font);
+        & .title {
+            color: var(--hover-color);
+            margin-bottom: 0.25rem;
+            font-size: 1.5rem;
+        }
+        & .subtitle {
+            color: var(--text-100-variant);
+            margin-bottom: 1rem;
+            font-size: 0.8rem;
+        }
+        & .select-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 0.5rem 0;
+            font-size: 0.8rem;
+            & select {
+                border: none;
+                background-color: var(--boxes-color);
+                color: var(--text-200-variant);
+                font-family: var(--system-font-mono);
+                font-weight: 100;
+                border-radius: 0.2rem;
+            }
+        }
+        & .modal-form {
+            display: flex;
+            flex-direction: column;
+            & .form-group {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin: 0.5rem 0;
+                & input {
+                    border: none;
+                    background-color: var(--boxes-color);
+                    color: var(--text-200-variant);
+                    font-family: var(--system-font-mono);
+                    font-size: 0.8rem;
+                    font-weight: 100;
+                    border-radius: 0.2rem;
+                    padding: 0.1rem 0.5rem;
+                }
+            }
+            & button {
+                height: auto;
+                cursor: pointer;
+                font-weight: 600;
+                margin-top: 0.75rem;
+                padding: 0.5rem 3.4rem;
+                border-radius: 1rem;
+                color: var(--text-color);
+                border: none;
+                box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.3);
+                &.cancel-record {
+                    background-color: var(--color-pink);
+                }
+                &.add-record {
+                    background: linear-gradient(-60deg, #8700ff, #ff009e);
+                }
+                &.delete-record {
+                    background-color: var(--color-pink);
+                }
+                &.cancel {
+                    background-color: var(--color-blue);
+                }
+            }
+        }
+    }
+}
+
+// Variables and Fonts
+:root {
+    // SurrealDB Colors
+    --text-color: #ffffff;
+    --back-color: #1a202d;
+    --dark-color: #363c4e;
+    --faint-color: #989cad;
+    --hover-color: #ff009e;
+    --popup-color: #272e3c;
+    --coder-color: #272e3c;
+    --boxes-color: #272e3c;
+    --input-color: #272e3c;
+    --split-color: #141416;
+    --darker-color: #1b202c;
+    --border-color: #363c4e;
+    --sidebar-color: #272e3c;
+    --background: #161A20;
+    // Variants
+    --background-variant: #161A21;
+    --item-hover-variant: #222532;
+    --background-variant-2: #1C1F28;
+    --text-100-variant: #ABB5C5;
+    --text-200-variant: #FFFFFF;
+    --border-variant: #3C414A;
+    --text-selected-variant: #FF00A3;
+    // Global Colors
+    --color-red: rgb(255 79 68);
+    --color-orange: rgb(255 169 20);
+    --color-yellow: rgb(255 224 20);
+    --color-green: rgb(60 225 85);
+    --color-mint: rgb(108 224 219);
+    --color-teal: rgb(68 212 237);
+    --color-cyan: rgb(90 205 250);
+    --color-blue: rgb(20 142 255);
+    --color-indigo: rgb(99 97 242);
+    --color-purple: rgb(204 101 255);
+    --color-pink: rgb(255 65 105);
+    --color-brown: rgb(182 152 114);
+    --color-gray: rgb(132 132 137);
+
+    --color-white: rgb(242 242 247);
+    --color-white-2: rgb(229 229 234);
+    --color-white-3: rgb(209 209 214);
+    --color-white-4: rgb(199 199 204);
+    --color-white-5: rgb(174 174 178);
+    --color-white-6: rgb(142 142 147);
+
+    --color-black: rgb(28 28 30);
+    --color-black-2: rgb(44 44 46);
+    --color-black-3: rgb(58 58 60);
+    --color-black-4: rgb(72 72 74);
+    --color-black-5: rgb(99 99 102);
+    --color-black-6: rgb(142 142 147);
+    
+    --system-font: 'Montserrat', sans-serif;
+    --system-font-mono: 'JetBrains Mono', monospace;
+    // --system-font-app: ui-sans-serif,system-ui,-apple-system,'Inter','Helvetica Neue','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
+    // --system-font-mono: ui-monospace,'SF Mono','SFMono-Regular','DejaVu Sans Mono','Menlo','Consolas',monospace;
+    // --system-font-serif: ui-serif,'New York','NewYork-Regular','Noto Serif','Droid Serif','Times New Roman','Times',serif;
+    // --system-font: ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI','Roboto','Ubuntu','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
+}
+
+//? Montserrat font
+@font-face {
+    font-family: 'Montserrat';
+    src: url('./assets/fonts/Montserrat/Montserrat-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('./assets/fonts/Montserrat/Montserrat-Bold.ttf');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('./assets/fonts/Montserrat/Montserrat-Italic.ttf');
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('./assets/fonts/Montserrat/Montserrat-Black.ttf');
+    font-weight: 900;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('./assets/fonts/Montserrat/Montserrat-BlackItalic.ttf');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('./assets/fonts/Montserrat/Montserrat-BoldItalic.ttf');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('./assets/fonts/Montserrat/Montserrat-ExtraBold.ttf');
+    font-weight: 800;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('./assets/fonts/Montserrat/Montserrat-ExtraBoldItalic.ttf');
+    font-weight: 800;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('./assets/fonts/Montserrat/Montserrat-ExtraLight.ttf');
+    font-weight: 200;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('./assets/fonts/Montserrat/Montserrat-ExtraLightItalic.ttf');
+    font-weight: 200;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('./assets/fonts/Montserrat/Montserrat-Light.ttf');
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('./assets/fonts/Montserrat/Montserrat-LightItalic.ttf');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('./assets/fonts/Montserrat/Montserrat-Medium.ttf');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('./assets/fonts/Montserrat/Montserrat-MediumItalic.ttf');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('./assets/fonts/Montserrat/Montserrat-SemiBold.ttf');
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('./assets/fonts/Montserrat/Montserrat-SemiBoldItalic.ttf');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('./assets/fonts/Montserrat/Montserrat-Thin.ttf');
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('./assets/fonts/Montserrat/Montserrat-ThinItalic.ttf');
+    font-weight: 100;
+    font-style: italic;
+}
+//? End of Montserrat font
+
+//? JetBrains Mono font
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('./assets/fonts/JetBrains Mono/JetBrainsMono-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('/assets/fonts/JetBrains Mono/JetBrainsMono-Bold.ttf');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('/assets/fonts/JetBrains Mono/JetBrainsMono-Italic.ttf');
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('/assets/fonts/JetBrains Mono/JetBrainsMono-BoldItalic.ttf');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('/assets/fonts/JetBrains Mono/JetBrainsMono-ExtraBold.ttf');
+    font-weight: 800;
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('/assets/fonts/JetBrains Mono/JetBrainsMono-ExtraBoldItalic.ttf');
+    font-weight: 800;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('/assets/fonts/JetBrains Mono/JetBrainsMono-ExtraLight.ttf');
+    font-weight: 200;
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('/assets/fonts/JetBrains Mono/JetBrainsMono-ExtraLightItalic.ttf');
+    font-weight: 200;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('/assets/fonts/JetBrains Mono/JetBrainsMono-Light.ttf');
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('/assets/fonts/JetBrains Mono/JetBrainsMono-LightItalic.ttf');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('/assets/fonts/JetBrains Mono/JetBrainsMono-Medium.ttf');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('/assets/fonts/JetBrains Mono/JetBrainsMono-MediumItalic.ttf');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('/assets/fonts/JetBrains Mono/JetBrainsMono-SemiBold.ttf');
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('/assets/fonts/JetBrains Mono/JetBrainsMono-SemiBoldItalic.ttf');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('/assets/fonts/JetBrains Mono/JetBrainsMono-Thin.ttf');
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('/assets/fonts/JetBrains Mono/JetBrainsMono-ThinItalic.ttf');
+    font-weight: 100;
+    font-style: italic;
+}
+//? End of JetBrains Mono font

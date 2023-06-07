@@ -1,0 +1,146 @@
+.hidden {
+    display: none;
+}
+
+#video-transition {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 9999;
+
+    &.fadeOut {
+        animation-name: fadeOut;
+        animation-duration: 0.5s;
+        animation-fill-mode: forwards;
+        animation-iteration-count: 1;
+    }
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation-name: fadeOut;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-direction: reverse;
+    animation-iteration-count: 1;
+
+    & .surrealdb-logo {
+        width: 24rem;
+        margin: 4rem 0;
+    }
+
+    & .log-in {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        & .title {
+            font-family: var(--system-font);
+            color: var(--hover-color);
+            font-size: 1.25rem;
+            font-weight: 600;
+
+            &::after {
+                content: "";
+                display: block;
+                width: 25%;
+                height: 0.1rem;
+                background-color: var(--hover-color);
+                margin: 0.3rem 0;
+            }
+        }
+
+        & form {
+            display: flex;
+            flex-direction: column;
+            padding: 0.5rem 0;
+
+            & .form-item {
+                display: flex;
+                flex-direction: column;
+                color: var(--text-color);
+
+                &:first-child {
+                    margin-bottom: 0.33rem;
+                }
+
+                &:last-child {
+                    margin-top: 0.33rem;
+                }
+
+                &:not(:first-child):not(:last-child) {
+                    margin: 0.33rem 0;
+                }
+
+                & label {
+                    display: flex;
+                    align-items: center;
+                    font-family: var(--system-font);
+                    margin-bottom: 0.25rem;
+
+                    & .bi {
+                        margin-right: 0.5rem;
+                    }
+                }
+
+                & input {
+                    font-family: var(--system-font-mono);
+                    background-color: var(--input-color);
+                    border: 0.1rem solid var(--border-color);
+                    color: var(--text-color);
+                    border-radius: 0.25rem;
+                    padding: 0.25rem 0.5rem;
+
+                    &:focus-visible {
+                        outline: none;
+                        border: 0.1rem solid var(--hover-color);
+                    }
+                }
+            }
+
+            & .error-msg {
+                font-family: var(--system-font-mono);
+                color: var(--color-red);
+                font-size: 0.8rem;
+                font-weight: 100;
+                margin: 0.6rem 0;
+            }
+
+            & .login-button {
+                align-self: center;
+                height: auto;
+                cursor: pointer;
+                /* width: 80%; */
+                font-weight: 600;
+                margin: 0.75rem 0;
+                padding: 0.5rem 3.4rem;
+                align-items: center;
+                border-radius: 50px;
+                display: inline-flex;
+                justify-content: center;
+                letter-spacing: 0.005em;
+                color: var(--text-color);
+                border: none;
+                transform: scale(var(--generate-button-scale, 1)) translateZ(0);
+                transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s, color 0.3s;
+                background: linear-gradient(-60deg, #8700ff, #ff009e);
+                box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.3);
+            }
+        }
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
