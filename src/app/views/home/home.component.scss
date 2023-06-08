@@ -13,15 +13,24 @@ main {
         & .option {
             display: flex;
             align-items: center;
-            justify-content: center;
             color: var(--color-white);
             cursor: pointer;
             transition: all 0.3s ease-in-out;
             padding: 0.5rem 1rem;
             border-radius: 0.5rem;
+            width: 80%;
+            &:first-child {
+                margin-bottom: 0.5rem;
+            }
+            &:last-child {
+                margin-top: 0.5rem;
+            }
+            &:not(:last-child):not(:first-child) {
+                margin: 0.5rem 0;
+            }
 
             & .bi {
-                margin-right: 0.25rem;
+                margin-right: 1rem;
                 transition: all 0.3s ease-in-out;
             }
 
@@ -36,9 +45,31 @@ main {
         }
 
         & .connections {
+            display: flex;
+            justify-content: center;
             margin: 1rem 0;
             padding: 1rem 0;
             border-bottom: 1px solid var(--border-variant);
+            & .connections-button {
+                justify-content: center;
+                padding: 0.5rem 1rem;
+                color: var(--color-white);
+                cursor: pointer;
+                transition: all 0.3s ease-in-out;
+                padding: 0.5rem 1rem;
+                border-radius: 0.5rem;
+                & .bi {
+                    margin-right: 0.5rem;
+                    transition: all 0.3s ease-in-out;
+                }
+                &:hover, &.active {
+                    & .bi {
+                        color: var(--hover-color);
+                    }
+    
+                    background-color: var(--item-hover-variant);
+                }
+            }
         }
     }
 }
