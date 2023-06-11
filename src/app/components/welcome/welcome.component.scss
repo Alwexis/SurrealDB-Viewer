@@ -1,0 +1,36 @@
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    color: var(--text-color);
+    & .logo {
+        display: flex;
+        align-items: center;
+        margin: 0.5rem 0;
+        & img {
+            width: 8rem;
+            margin-right: 0.25rem;
+        }
+        & h1 {
+            margin-left: 0.25rem;
+        }
+    }
+    & .created-by {
+        color: var(--text-100-variant);
+        & a {
+            text-decoration: none;
+            color: var(--hover-color);
+        }
+    }
+    & .disclaimer {
+        color: var(--text-100-variant);
+        font-size: 0.6rem;
+        white-space: pre-line;
+        word-break: break-word;
+        text-align: center;
+        position: absolute;
+        bottom: 1rem;
+    }
+}

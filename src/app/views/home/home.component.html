@@ -6,7 +6,7 @@
 <!--? https://github.com/iDevelopThings/SurrealDB-Explorer -->
 
 <main>
-    <section id="right-side">
+    <section id="left-side">
         <img class="surrealdb-logo" src="./assets/surrealdb-logo-light.svg" alt="SurrealDB Logo">
         <div class="connections">
             <div class="connections-button active">
@@ -40,6 +40,14 @@
                 Logins
             </div>
         </div>
+        <div class="current-connection">
+            Current Connection
+            <div class="{{ DBName != '' ? 'connected' : 'disconnected' }}"></div>
+            {{ DBName }}
+        </div>
+    </section>
+    <section id="right-side">
+        <app-welcome></app-welcome>
     </section>
 </main>
 <!--

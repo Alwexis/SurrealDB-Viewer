@@ -8,6 +8,7 @@ import { HomeComponent } from './views/home/home.component';
 import { TablesViewComponent } from './views/tables-view/tables-view.component';
 import { TablesFormComponent } from './components/tables-form/tables-form.component';
 import { TransitionComponent } from './components/transition/transition.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { TransitionComponent } from './components/transition/transition.componen
     TablesViewComponent,
     TablesFormComponent,
     TransitionComponent,
+    WelcomeComponent,
   ],
   imports: [
     BrowserModule,

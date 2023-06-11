@@ -5,7 +5,11 @@
 }
 
 main {
-    #right-side {
+    display: flex;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    #left-side {
         padding: 2rem;
         max-width: 20%;
         min-width: 20%;
@@ -71,6 +75,33 @@ main {
                 }
             }
         }
+
+        & .current-connection {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            bottom: 0.5rem;
+            left: 0.5rem;
+            color: var(--text-100-variant);
+            font-size: 0.8rem;
+            & div {
+                width: 0.6rem;
+                height: 0.6rem;
+                border-radius: 100%;
+                margin: 0 0.25rem;
+                &.connected {
+                    background-color: var(--color-green);
+                }
+                &.disconnected {
+                    background-color: var(--color-red);
+                }
+            }
+        }
+    }
+    #right-side {
+        max-width: 80%;
+        min-width: 80%;
+        padding: 2rem;
     }
 }
 
