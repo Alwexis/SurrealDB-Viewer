@@ -1,0 +1,10 @@
+<main>
+    <section class="saved-queries">
+        <h1>Saved Queries</h1>
+    </section>
+    <section class="code-editor">
+        <div class="query">
+            <ngx-monaco-editor style="width: 100%" [options]="editorOptions" [(ngModel)]="code" (onInit)="onInit($event)"></ngx-monaco-editor>
+        </div>
+    </section>
+</main>

@@ -1,0 +1,23 @@
+main {
+    display: flex;
+    & .saved-queries {
+        width: 20%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    & .code-editor {
+        width: 80%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        & .query {
+            width: 60%;
+            height: 100%;
+        }
+    }
+}

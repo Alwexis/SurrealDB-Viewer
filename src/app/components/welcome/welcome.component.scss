@@ -17,11 +17,122 @@ main {
             margin-left: 0.25rem;
         }
     }
+    & .item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 12px 0;
+    }
     & .created-by {
         color: var(--text-100-variant);
+        flex-direction: row;
         & a {
             text-decoration: none;
             color: var(--hover-color);
+            margin: 0 0.25rem;
+        }
+    }
+    & .reach-dev {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        & span {
+            color: var(--text-100);
+        }
+        & .social-media {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 8px 0;
+            & a {
+                display: flex;
+                background-color: var(--back-color);
+                border: 1px solid var(--border-color);
+                border-radius: 0.5rem;
+                text-decoration: none;
+                color: var(--text-100-variant);
+                fill: var(--text-100-variant);
+                padding: 6px;
+                margin: 0 4px;
+                transition: all 0.25s ease-in-out;
+                cursor: pointer;
+                & svg {
+                    height: 16px;
+                    width: 16px;
+                }
+                &:hover {
+                    background-color: var(--input-color);
+                    transform: scale(1.1);
+                    color: var(--hover-color);
+                    fill: var(--hover-color);
+                }
+            }
+        }
+    }
+    & .documentation {
+        & .buttons {
+            display: flex;
+            margin-top: 8px;
+            & .docs {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: var(--back-color);
+                border: 1px solid var(--border-color);
+                border-radius: 0.5rem;
+                margin: 0 6px;
+                padding: 6px 12px;
+                cursor: pointer;
+                text-decoration: none;
+                transition: all 0.25s ease-in-out;
+                color: var(--text-100-variant);
+                fill: var(--text-100-variant);
+                font-size: 0.8rem;
+                & svg {
+                    margin-right: 0.25rem;
+                    height: 16px;
+                    width: 16px;
+                }
+                &:hover {
+                    background-color: var(--input-color);
+                    color: var(--text-100);
+                    fill: var(--hover-color);
+                }
+            }
+        }
+    }
+    & .github-actions, & .how-to-start {
+        & .buttons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 8px 0;
+            & .action {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: var(--back-color);
+                border: 1px solid var(--border-color);
+                border-radius: 0.5rem;
+                margin: 0 6px;
+                padding: 6px 12px;
+                cursor: pointer;
+                text-decoration: none;
+                transition: all 0.25s ease-in-out;
+                color: var(--text-100-variant);
+                fill: var(--text-100-variant);
+                font-size: 0.8rem;
+                & svg {
+                    height: 16px;
+                    width: 16px;
+                    margin-right: 0.25rem;
+                }
+                &:hover {
+                    background-color: var(--input-color);
+                    color: var(--text-100);
+                    fill: var(--hover-color);
+                }
+            }
         }
     }
     & .disclaimer {

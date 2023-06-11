@@ -10,9 +10,12 @@ import { Surreal } from 'surrealdb.js';
 })
 export class HomeComponent implements OnInit {
   DBName?: string;
-  activeTab = 'sqlquery';
+  activeTab = 'home';
+  private static currentInstance: HomeComponent;
 
-  constructor(private _router: Router, private _dbService: DbService) { }
+  constructor(private _router: Router, private _dbService: DbService) {
+    HomeComponent.currentInstance = this;
+  }
 
   async ngOnInit() {
     if (!DbService.initializated) {
@@ -27,5 +30,11 @@ export class HomeComponent implements OnInit {
     this.activeTab = newTab;
     document.querySelector('.option.active')?.classList.remove('active');
     document.querySelector(`#${newTab}`)?.classList.add('active');
+  }
+
+  public static _changeTab(newTab: string) {
+    const instance = HomeComponent.currentInstance;
+    if (instance.activeTab === newTab) return;
+    instance.activeTab = newTab;
   }
 }

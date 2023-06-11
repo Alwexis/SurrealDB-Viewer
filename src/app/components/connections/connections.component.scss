@@ -1,0 +1,87 @@
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    & .add-connection {
+        & .title {
+            display: flex;
+            align-items: center;
+            color: var(--text-color);
+            fill: var(--text-color);
+            margin: 0;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            width: fit-content;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--background);
+            border-radius: 0.5rem;
+            & svg {
+                height: 20px;
+                &:first-child {
+                    margin-right: 0.5rem;
+                }
+                &:last-child {
+                    margin-left: 0.5rem;
+                    transform: rotate(0deg);
+                    transition: transform 0.2s ease-in-out;
+                }
+            }
+            &:hover, &.active {
+                fill: var(--hover-color);
+                background: var(--back-color);
+                border: 1px solid var(--border-color);
+                & svg {
+                    fill: var(--hover-color);
+                }
+            }
+            &.active {
+                & svg {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+        & .add-conn-form {
+            margin: 8px 0;
+            padding: 8px 16px;
+            background: var(--back-color);
+            color: var(--text-100-variant);
+            font-size: 0.85rem;
+            width: fit-content;
+            & .form-item {
+                display: flex;
+                flex-direction: column;
+                width: fit-content;
+                margin: 6px 0;
+                & label {
+                    margin-bottom: 4px;
+                }
+                & input {
+                    background: var(--background);
+                    border: 1px solid var(--border-color);
+                    border-radius: 0.25rem;
+                    padding: 2px 6px;
+                    color: var(--text-100-variant);
+                    font-family: var(--system-font-mono);
+                    max-width: 128px;
+                    min-width: 128px;
+                    &:focus-visible {
+                        outline: 1px solid var(--hover-color);
+                    }
+                }
+            }
+            & .form-group {
+                display: flex;
+                align-items: center;
+                & .form-item {
+                    &:first-child {
+                        margin-right: 6px;
+                    }
+                    &:last-child {
+                        margin-left: 6px;
+                    }
+                }
+            }
+        }
+    }
+}

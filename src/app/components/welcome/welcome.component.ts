@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HomeComponent } from 'src/app/views/home/home.component';
 
 @Component({
   selector: 'app-welcome',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./welcome.component.scss']
 })
 export class WelcomeComponent {
-
+  changeTab(tab: string) {
+    HomeComponent._changeTab(tab);
+  }
 }

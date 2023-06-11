@@ -1,0 +1,42 @@
+<main>
+    <section class="add-connection">
+        <h1 (click)="toggleConnectionForm()" class="title {{addConnectionForm ? 'active' : 'false'}}">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 11V7H13V11H17V13H13V17H11V13H7V11H11ZM12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20Z"></path></svg>
+            Add connection
+            <svg id="add-conn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16 12L10 18V6L16 12Z"></path></svg>
+        </h1>
+        <form class="add-conn-form" *ngIf="addConnectionForm" #addConnection="ngForm">
+            <div class="form-item">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" [(ngModel)]="connection.name" required>
+            </div>
+            <div class="form-group">
+                <div class="form-item">
+                    <label for="user">User</label>
+                    <input type="text" id="user" name="user" [(ngModel)]="connection.user" required>
+                </div>
+                <div class="form-item">
+                    <label for="pass">Password</label>
+                    <input type="password" id="pass" name="pass" [(ngModel)]="connection.pass" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-item">
+                    <label for="namespace">Namespace</label>
+                    <input type="text" id="namespace" name="namespace" [(ngModel)]="connection.namespace" required>
+                </div>
+                <div class="form-item">
+                    <label for="host">Host</label>
+                    <input type="text" id="host" name="host" [(ngModel)]="connection.host" required>
+                </div>
+            </div>
+            <div class="form-item">
+                <label for="path">Path</label>
+                <input type="text" id="path" name="path" [(ngModel)]="connection.path" required>
+            </div>
+        </form>
+    </section>
+    <section class="your-connections">
+
+    </section>
+</main>
